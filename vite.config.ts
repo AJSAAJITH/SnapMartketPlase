@@ -18,11 +18,7 @@ export default defineConfig(({ command }) => ({
             ],
         }),
         inertia(),
-        react({
-            babel: {
-                plugins: ['babel-plugin-react-compiler'],
-            },
-        }),
+        react(),
         tailwindcss(),
         // 🚀 බිල්ඩ් එක ප්‍රොඩක්ෂන් නම් වේෆයින්ඩර් එකේ අනවශ්‍ය වැඩ නවත්වන්න
         wayfinder({
