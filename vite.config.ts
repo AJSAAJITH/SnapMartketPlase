@@ -6,7 +6,7 @@ import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
@@ -24,8 +24,9 @@ export default defineConfig({
             },
         }),
         tailwindcss(),
+        // 🚀 බිල්ඩ් එක ප්‍රොඩක්ෂන් නම් වේෆයින්ඩර් එකේ අනවශ්‍ය වැඩ නවත්වන්න
         wayfinder({
-            formVariants: true,
+            formVariants: command === 'serve',
         }),
     ],
-});
+}));
