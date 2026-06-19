@@ -38,11 +38,12 @@ return [
             'options' => [
                 'host' => env('REVERB_SERVER_HOST', '127.0.0.1'),
                 'port' => env('REVERB_SERVER_PORT', 8090),
-                'scheme' => 'http', // 🚀 සර්වර් එක ඇතුළේ සන්නිවේදනයට HTTP පමණක් භාවිතා කරයි (SSL Error මඟහරී)
-                'useTLS' => false,  // 🚀 සර්වර් එක ඇතුළතදී SSL වෙරිෆයි කරන්නේ නැත
+                /* 🚀 FIXED: .env එකෙන් එන REVERB_SCHEME එක (http) ගෙන, useTLS එක ඔටෝම false කරයි */
+                'scheme' => env('REVERB_SCHEME', 'http'),
+                'useTLS' => env('REVERB_SCHEME', 'http') === 'https',
             ],
             'client_options' => [
-                // SSL verification එක අභ්‍යන්තරව bypass කිරීමට (සහතිකය සඳහා)
+                // 🚀 FIXED: Guzzle client එකට internal SSL එක bypass කිරීමට verify false දීම මෙතනට දැමිය යුතුයි
                 'verify' => false,
             ],
         ],
