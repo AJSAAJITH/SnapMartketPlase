@@ -7,14 +7,14 @@ import AuthLayout from '@/layouts/auth-layout';
 import SettingsLayout from '@/layouts/settings/layout';
 import { configureEcho } from '@laravel/echo-react';
 
-// 🚀 FIXED: Production (HTTPS/443) සහ Localhost (8090) පරිසර දෙකටම ගැළපෙන ලෙස නිවැරදි කිරීම
+// 🚀 FIXED: Hardcoded හෝ `${}` වැරදි සම්පූර්ණයෙන්ම ඉවත් කර ස්ථාවරව Production SSL සකස් කිරීම
 configureEcho({
     broadcaster: 'reverb',
     key: import.meta.env.VITE_REVERB_APP_KEY,
     wsHost: import.meta.env.VITE_REVERB_HOST,
-    wsPort: import.meta.env.VITE_REVERB_PORT ? Number(import.meta.env.VITE_REVERB_PORT) : 80,
-    wssPort: import.meta.env.VITE_REVERB_PORT ? Number(import.meta.env.VITE_REVERB_PORT) : 443,
-    forceTLS: (import.meta.env.VITE_REVERB_SCHEME ?? 'https') === 'https',
+    wsPort: 80,
+    wssPort: 443,
+    forceTLS: import.meta.env.VITE_REVERB_SCHEME === 'https',
     enabledTransports: ['ws', 'wss'],
 });
 

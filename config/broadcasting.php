@@ -36,10 +36,10 @@ return [
             'secret' => env('REVERB_APP_SECRET'),
             'app_id' => env('REVERB_APP_ID'),
             'options' => [
-                // 🚀 FIXED: සර්වර් එක ඇතුලෙන්ම Reverb එකට කනෙක්ට් වෙන්න අභ්‍යන්තර Host සහ Port එක ලබා දීම
+                // 🚀 FIXED: .env එකෙන් එන REVERB_SERVER_HOST එක කෙලින්ම ලබා දීම (Local හෝ Internal Railway Domain එකට ගැළපේ)
                 'host' => env('REVERB_SERVER_HOST', '127.0.0.1'),
                 'port' => env('REVERB_SERVER_PORT', 8090),
-                'scheme' => 'http', // සර්වර් එක ඇතුලත සන්නිවේදනයට SSL (https) අවශ්‍ය නැත
+                'scheme' => 'http',
                 'useTLS' => false,
             ],
             'client_options' => [
