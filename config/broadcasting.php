@@ -36,14 +36,13 @@ return [
             'secret' => env('REVERB_APP_SECRET'),
             'app_id' => env('REVERB_APP_ID'),
             'options' => [
-                // 🚀 FIXED: .env එකෙන් එන REVERB_SERVER_HOST එක කෙලින්ම ලබා දීම (Local හෝ Internal Railway Domain එකට ගැළපේ)
                 'host' => env('REVERB_SERVER_HOST', '127.0.0.1'),
                 'port' => env('REVERB_SERVER_PORT', 8090),
-                'scheme' => 'http',
-                'useTLS' => false,
+                'scheme' => env('REVERB_SCHEME', 'http'),
+                'useTLS' => env('REVERB_SCHEME') === 'https', // 🚀 FIXED: HTTPS නම් TLS true කරයි
             ],
             'client_options' => [
-                // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
+                // Guzzle client options
             ],
         ],
 
