@@ -61,7 +61,7 @@ export function AppSidebar({ totalUnreadCount }: AppSidebarProps) {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href={dashboard()} prefetch>
+                            <Link href={'/'} prefetch>
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>
@@ -78,7 +78,7 @@ export function AppSidebar({ totalUnreadCount }: AppSidebarProps) {
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
+                {/* <NavFooter items={footerNavItems} className="mt-auto" /> */}
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

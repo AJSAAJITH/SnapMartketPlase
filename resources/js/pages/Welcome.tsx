@@ -85,12 +85,7 @@ export default function Welcome({ products }: WelcomeProps) {
                                     >
                                         + Sell Product
                                     </Link>
-                                    <Link
-                                        href={'/dashboard'}
-                                        className="text-sm font-medium text-gray-600 hover:text-gray-900"
-                                    >
-                                        Dashboard
-                                    </Link>
+
                                 </>
                             ) : (
                                 <>
